@@ -77,7 +77,7 @@ jobs:
         git tag -- "${date_tag}" || true
 
         git log -1 --patch --color=always | cat
-        git tag | tail -n1
+        git tag | tail -n3
 
     - if: ${{ github.ref == 'refs/heads/main' }}
       name: Push changes
