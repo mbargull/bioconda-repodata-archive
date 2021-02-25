@@ -25,6 +25,7 @@ jobs:
       run: |
         pip install ntplib requests urllib3
         ./fetch-repodata.py \
+          --trim \
           --channel https://conda.anaconda.org/bioconda \
           --channel https://conda.anaconda.org/conda-forge \
           \
