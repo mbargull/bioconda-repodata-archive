@@ -81,4 +81,4 @@ jobs:
 
     - if: ${{ github.ref == 'refs/heads/main' }}
       name: Push changes
-      run: git push
+      run: git push --tags
