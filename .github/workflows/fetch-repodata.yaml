@@ -55,8 +55,7 @@ jobs:
           --channel https://conda.anaconda.org/conda-forge/label/broken \
           ;
 
-    - if: ${{ github.ref == 'refs/heads/main' }}
-      name: Commit, tag, push
+    - name: Add changes, commit and tag
       run: |
         git config user.name github-actions
         git config user.email github-actions@github.com
@@ -76,4 +75,10 @@ jobs:
         git tag -- "${version_time_tag}"
         git tag -- "${version_date_tag}" || true
         git tag -- "${date_tag}" || true
-        git push
+
+        git log -1 --patch --color=always | cat
+        git tag | tail -n1
+
+    - if: ${{ github.ref == 'refs/heads/main' }}
+      name: Push changes
+      run: git push
