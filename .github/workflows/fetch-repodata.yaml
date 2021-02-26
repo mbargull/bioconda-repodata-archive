@@ -62,7 +62,7 @@ jobs:
         git config user.email github-actions@github.com
         git add -A ./repodata
         git status
-        find ./repodata -name repodata.json \
+        find ./repodata -name \*repodata.json \
           | xargs stat --format=%s\ %n -- \
           | sort -n
         version="${{ env.VERSION_MAYOR }}.${{ env.VERSION_MINOR }}.${{ env.VERSION_CHANNELS }}"
