@@ -11,7 +11,7 @@ jobs:
     env:
       # NOTE: Incrememt VERSION_MAYOR when making mayor/incompatible changes,
       #       e.g., changing directory layout etc.
-      VERSION_MAYOR: 1
+      VERSION_MAYOR: 2
       # NOTE: Incrememt VERSION_MINOR when causing diffs due to non-channel
       #       updates, e.g., adding/changing --trim-key or --subdir.
       VERSION_MINOR: 2

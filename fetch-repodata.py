@@ -137,7 +137,7 @@ def fetch_repodata(
     else:
         input_repodata = json_loads(response.text)
         output_repodata = cleanup_unneeded_info(input_repodata, output_config.trim_keys)
-        output_subdir = re_sub("//", "%2F/", urllib_quote(url_prefix))
+        output_subdir = re_sub("//", "%2F/", urllib_quote(url_prefix)).replace("%", "=")
         output_dir = output_config.output_root + "/" + output_subdir
         os.makedirs(output_dir, exist_ok=True)
         output_file_path = f"{output_dir}/repodata.json"
